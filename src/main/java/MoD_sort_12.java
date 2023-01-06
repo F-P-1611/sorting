@@ -1,5 +1,3 @@
-package org.francis.analytics;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -123,7 +121,7 @@ public class MoD_sort_12 extends JFrame {
   // end attributes1
 
   // start methods1
-        public  void main(String[] args) {
+        public  void timer() {
             final long timeStart = System.nanoTime();
             for (int i = 0; i < 1000000; i++) {
                 // nichts machen
