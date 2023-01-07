@@ -42,7 +42,7 @@ public class MoD_sort_12 extends JFrame {
         int x = (d.width - getSize().width) / 2;
         int y = (d.height - getSize().height) / 2;
         setLocation(x, y);
-        setTitle("Sortieren von Zufallszahlen");
+        setTitle("Sortieren von Zufallszahlen mit Bubblesort");
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
@@ -96,8 +96,8 @@ public class MoD_sort_12 extends JFrame {
         cp.add(versucheNF);
         // Ende Komponenten
 
-        tbnoduplicates1.setBounds(8, 136, 112, 24);
-        tbnoduplicates1.setText("no duplicates");
+        tbnoduplicates1.setBounds(8, 136, 123, 24);
+        tbnoduplicates1.setText("keine Duplikate");
         tbnoduplicates1.setMargin(new Insets(2, 2, 2, 2));
         tbnoduplicates1.addActionListener(new ActionListener() { 
           public void actionPerformed(ActionEvent evt) { 
