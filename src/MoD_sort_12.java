@@ -51,7 +51,7 @@ public class MoD_sort_12 extends JFrame {
         // Anfang Komponenten
 
         bGeneriere.setBounds(6, 10, 131, 25);
-        bGeneriere.setText("Generiere Zahlen");
+        bGeneriere.setText("Zahlen generieren");
         bGeneriere.setMargin(new Insets(2, 2, 2, 2));
         bGeneriere.addActionListener(new ActionListener() {;
             public void actionPerformed(ActionEvent evt) {
@@ -60,7 +60,7 @@ public class MoD_sort_12 extends JFrame {
         });
         cp.add(bGeneriere);
         bSort.setBounds(6, 78, 131, 25);
-        bSort.setText("Sortiere");
+        bSort.setText("sortieren");
         bSort.setMargin(new Insets(2, 2, 2, 2));
         bSort.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -166,7 +166,7 @@ public class MoD_sort_12 extends JFrame {
                     unsorted[k] = candidate;
                     break;
                 }                                      
-                System.out.println(String.format("duplicate trying again %s", l+1));
+                System.out.println(String.format("Kandidatszahl existiert bereits als Wert. Versuche erneut.", l+1));
             } // end of for     
         } // end of for
 
