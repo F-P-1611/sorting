@@ -166,7 +166,7 @@ public class MoD_sort_12 extends JFrame {
                     unsorted[k] = candidate;
                     break;
                 }                                      
-                System.out.println(String.format("Kandidatszahl existiert bereits als Wert. Versuche erneut.", l+1));
+                System.out.println(String.format("Generierter Kandidat existiert bereits. Versuche erneut.", l+1));
             } // end of for     
         } // end of for
 
