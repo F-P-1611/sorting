@@ -6,9 +6,9 @@ import javax.swing.*;
  *
  * Beschreibung
  *
+ * Klausurersatzleistung Infomatik Q1
  * @version 1.0 vom 17.01.23
- * @author Francis
- * Klausurersatzleistung Infomatik Q1 
+ * @author Francis Pennoyer 
  */
 
 public class MoD_sort extends JFrame {
