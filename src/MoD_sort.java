@@ -3,17 +3,27 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
+ * Copyright 2023 (C) <your company>
  *
- * Beschreibung
+ * Created on : dd-mm-yy
+ * Author     : author
  *
- * Klausurersatzleistung Infomatik Q1
- * @version 1.0 vom 17.01.23
- * @author Francis Pennoyer 
- */
-
+ *-----------------------------------------------------------------------------
+ * Revision History (Release 1.0.0.0)
+ *-----------------------------------------------------------------------------
+ * VERSION     AUTHOR/      DESCRIPTION OF CHANGE
+ * OLD/NEW     DATE                RFC NO
+ *-----------------------------------------------------------------------------
+ *  1.0.0  | W.F.          | Initial Create.
+ *         | dd-mm-yy      |
+ *---------|---------------|---------------------------------------------------
+ *  1.1.0  | Francis P     | Implementation bSort_ActionPerformed
+ *         | 17-01-2023    |
+ *---------|---------------|---------------------------------------------------
+ **/
 public class MoD_sort extends JFrame {
     // Anfang Attribute
-  // start attributes
+    // start attributes
     private JButton bGeneriere = new JButton();
     private JButton bSort = new JButton();
     private JNumberField nfLaenge = new JNumberField();
@@ -28,8 +38,9 @@ public class MoD_sort extends JFrame {
     private JNumberField nfAnzahlVergleiche = new JNumberField();
     // Ende Attribute
 
-    public JLabel  lLaufzeit = new JLabel();
+    public JLabel lLaufzeit = new JLabel();
     public JToggleButton tbnoduplicates1 = new JToggleButton();
+
     // end attributes
     public MoD_sort() {
 
@@ -47,14 +58,16 @@ public class MoD_sort extends JFrame {
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
-    // start components
+        // start components
 
         // Anfang Komponenten
 
         bGeneriere.setBounds(6, 10, 131, 25);
         bGeneriere.setText("Zahlen generieren");
         bGeneriere.setMargin(new Insets(2, 2, 2, 2));
-        bGeneriere.addActionListener(new ActionListener() {;
+        bGeneriere.addActionListener(new ActionListener() {
+            ;
+
             public void actionPerformed(ActionEvent evt) {
                 bGeneriere_ActionPerformed(evt);
             }
@@ -87,7 +100,7 @@ public class MoD_sort extends JFrame {
         lAnzahlPositionswechsel.setBounds(650, 72, 150, 33);
         lAnzahlPositionswechsel.setText("Anzahl der Tausche");
         cp.add(lAnzahlPositionswechsel);
-        lLaufzeit.setBounds(14,150,200,25);
+        lLaufzeit.setBounds(14, 150, 200, 25);
         //lLaufzeit.setText("Laufzeit:");
         //cp.add(lLaufzeit);
 
@@ -100,29 +113,29 @@ public class MoD_sort extends JFrame {
         tbnoduplicates1.setBounds(8, 136, 123, 24);
         tbnoduplicates1.setText("keine Duplikate");
         tbnoduplicates1.setMargin(new Insets(2, 2, 2, 2));
-        tbnoduplicates1.addActionListener(new ActionListener() { 
-          public void actionPerformed(ActionEvent evt) { 
-            //tbnoduplicates1_ActionPerformed(evt);
-          }
+        tbnoduplicates1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //tbnoduplicates1_ActionPerformed(evt);
+            }
         });
         cp.add(tbnoduplicates1);
         // end components
-            setVisible(true);
-        } // end of public MoD_sort
+        setVisible(true);
+    } // end of public MoD_sort
 
     // Anfang Methoden
 
-  // start methods
+    // start methods
     public static void main(String[] args) {
         new MoD_sort();
     } // end of main
 
     private class TempoClass2 {
-  // start attributes1
-  // end attributes1
+        // start attributes1
+        // end attributes1
 
-  // start methods1
-        public  void timer() {
+        // start methods1
+        public void timer() {
             final long timeStart = System.nanoTime();
             for (int i = 0; i < 1000000; i++) {
                 // nichts machen
@@ -130,24 +143,33 @@ public class MoD_sort extends JFrame {
             final long timeEnd = System.nanoTime();
             System.out.println("Laufzeit: " + (timeEnd - timeStart) + " Nanosek.");
         }
-    // start components1
-    // end components1
-  public void tbnoduplicates1_ActionPerformed(ActionEvent evt) {
-    // TODO add your code here
-    
-  } // end of tbnoduplicates1_ActionPerformed
-
-  // end methods1
+        // start components1
+        // end components1
+        // end methods1
     }
-  
-    private boolean contains(int[] array, int end, int value)  {
-        for  (int i = 0;i < end ;i++ ) {
-             if ( array[i] == value)
-                return true;
-        } // end of for   
-        
+
+    public void tbnoduplicates1_ActionPerformed(ActionEvent evt) {
+        // TODO add your code here
+
+    } // end of tbnoduplicates1_ActionPerformed
+
+    /**
+     * Methode zum Prüfen, ob Zahl bereits im Array vorliegt
+     *
+     * @param array
+     * @param end
+     * @param value
+     * @return true Element in Array
+     */
+    private boolean contains(int[] array, int end, int value) {
+        // Beginn for-Schleife
+        for (int i = 0; i < end; i++) {
+            if (array[i] == value)
+                return true;  // Element liegt bereits vor
+        } // Ende for-Schleife
         return false;
-    } 
+    }
+
     public void bGeneriere_ActionPerformed(ActionEvent evt) {
         //Generierung und Ausgabe der unsortierten Zufallszahlen (voreingestellte Maximallänge: 80 Zahlen)
         int eingabe = nfLaenge.getIntValue();
@@ -155,65 +177,75 @@ public class MoD_sort extends JFrame {
         nfLaenge.setValue(laenge);
         boolean noDuplicates = this.tbnoduplicates1.isSelected();
 
-        for (int i = 0;i<50 ;i++ ) {
+        for (int i = 0; i < 50; i++) {
             unsorted[i] = 0;
         } // end of for
 
-        for (int k = 0;k < laenge ;k++ ) {  
-            for (int l = 0;l<100 ; l++ ) {
-                int candidate = (int)(Math.random()*100);
-                if(!noDuplicates  || contains(unsorted, k, candidate) == false)      {
+        for (int k = 0; k < laenge; k++) {
+            for (int l = 0; l < 100; l++) {
+                int candidate = (int) (Math.random() * 100);
+                // Wenn der Togglebutton "Keine Duplikate" angeklickt ist, prüfen, ob Kandidat bereits im Array vorliegt.
+                if (!noDuplicates || contains(unsorted, k, candidate) == false) {
+                    // Kandidat Einfügen in unsorted Array
                     unsorted[k] = candidate;
                     break;
-                }                                      
-                System.out.println(String.format("Generierte Zahl existiert bereits im Array. Versuche erneut.", l+1));
+                }
+                System.out.println(String.format("Generierte Zahl existiert bereits im Array. Versuche erneut.", l + 1));
             } // end of for     
         } // end of for
 
         unsortLabel.setText("" + unsorted[0]);
-        for (int j = 1;j < laenge ;j++ ) {
+        for (int j = 1; j < laenge; j++) {
             unsortLabel.setText(unsortLabel.getText() + ";" + unsorted[j]);
         } // end of for
 
     } // end of bGeneriere_ActionPerformed
 
-    private void printResult(){
+    /**
+     * Ausgeben des sortierten Arrays
+     */
+    private void printResult() {
         int laenge = nfLaenge.getIntValue();
         sortLabel.setText("" + unsorted[0]);
-        for (int j = 1;j < laenge ;j++ ) {
+        for (int j = 1; j < laenge; j++) {
             sortLabel.setText(sortLabel.getText() + ";" + unsorted[j]);
         }
     }
-    public void bSort_ActionPerformed(ActionEvent evt) {
-        // TODO - hier sind Sie gefragt: Sortieren Sie die Zahlen im array unsorted aufsteigend!
 
+    public void bSort_ActionPerformed(ActionEvent evt) {
+        // Sortieren der Zahlen im array unsorted aufsteigend
+
+        // Deklarieren der lokalen Variablen
         int tempVar = 0;
         int laenge = nfLaenge.getIntValue();
         int anzahlVergleiche = 0;
         int anzahlVerschiebungen = 0;
-        for (int i = 0; i < laenge-1; i++)
-        {
-            for(int j = 0; j < laenge-i-1; j++)
-            {
-                anzahlVergleiche++;
-                if(unsorted[j] > unsorted[j + 1])
-                {
-                    anzahlVerschiebungen++;
-                    tempVar = unsorted [j + 1];
-                    unsorted [j + 1]= unsorted [j];
-                    unsorted [j] = tempVar;
-                }
-            }
-        }
 
+        // Beginn äußere for-Schleife
+        for (int i = 0; i < laenge - 1; i++) {
+            // Beginn innere for-Schleife
+            for (int j = 0; j < laenge - i - 1; j++) {
+                anzahlVergleiche++; // Anzahl Vergleiche um 1 erhöhen
+                // Vergleich der benachbarten Werte
+                if (unsorted[j] > unsorted[j + 1]) {
+                    anzahlVerschiebungen++;          // Anzahl Positionswechsel bzw. Tausche bzw. Verschiebungen um 1 erhöhen
+                    tempVar = unsorted[j + 1];      // Wert in temporäre Variable verstauen
+                    unsorted[j + 1] = unsorted[j];  // größeren Wert in höhere Array-Position einsetzen
+                    unsorted[j] = tempVar;          // kleineren Wert in niedrigerere Array-Position einsetzen
+                    // Tausch abgeschlossen...
+                }
+            } // Ende innere for-Schleife
+        } // Ende äußere for-Schleife
+
+        // Aufrufen der printResult-Methode
         printResult();
 
+        // Aktualisieren der GUI-Elemente
         nfAnzahlPositionswechsel.setText(Integer.toString(anzahlVerschiebungen));
         nfAnzahlVergleiche.setText(Integer.toString(anzahlVergleiche));
-        System.out.println(unsorted);
 
     } // end of bSort_ActionPerformed
 
     // Ende Methoden
-  // end methods
+    // end methods
 } // end of class MoD_sort

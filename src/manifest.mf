@@ -1,1 +1,1 @@
-Main-Class: MoD_sort_12
+Main-Class: MoD_sort

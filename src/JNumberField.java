@@ -14,7 +14,7 @@ public class JNumberField extends JTextField implements ActionListener {
 
     private static final long serialVersionUID = -138039675088007707L;
 
-  Number value = new Double(0.0);
+  Number value = 0.0;
     DecimalFormat formatter = new DecimalFormat("0");
 
     double[] admissibleValues = null;
@@ -123,7 +123,7 @@ public class JNumberField extends JTextField implements ActionListener {
         if(index >= 0) value = admissibleValues[index];
 
       // Apply bounds
-        this.value = new Double(Math.min(Math.max(lowerBound,value.doubleValue()),upperBound));
+        this.value = Math.min(Math.max(lowerBound,value.doubleValue()),upperBound);
 
         // Write and resize field
         this.setText(formatter.format(value));
