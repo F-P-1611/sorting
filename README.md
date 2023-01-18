@@ -1,5 +1,5 @@
 
-!Bitte beachten: Infomatieral (pptx-Datei) muss herunter geladen werden, um sie zu öffnen.
+! Bitte beachten! : Infomatieral (pptx-Datei) muss heruntergeladen werden, um sie zu öffnen.
 
 Zum Ausführen des Programmes...
 
